@@ -26,9 +26,9 @@ function Page1(){
                     :Capitaine : Toi là, tu fais quoi ?
                 "></Dialogue>
                 
-                <Choix shown={isLastPhrase ? "oui" : `${"oui"} ${styles.hidden}`} 
+                <Choix shown={isLastPhrase}
                     contenu="Choix numéro 1/Choix numéro 2/Choix numéro 3"
-                
+                    
                 ></Choix>
 
                 <Guide contenu="Parlez au capitaine"></Guide>

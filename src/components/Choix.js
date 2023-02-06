@@ -1,3 +1,4 @@
+import styles from '../components/choix.module.css'
 
 function Choix(props){
 
@@ -5,10 +6,11 @@ function Choix(props){
 
     return(
         <>
+            <section className={(props.shown ? styles.wrapper : `${styles.wrapper} ${styles.hidden}`)}>
             {contenus.map((item, index) =>(
                 <button key={index}>{item}</button>
             ))}
-            
+            </section>
         </>
     )
 }
