@@ -27,8 +27,7 @@ function Page1(){
                 "></Dialogue>
                 
                 <Choix shown={isLastPhrase}
-                    contenu="Choix numéro 1/Choix numéro 2/Choix numéro 3"
-                    
+                    contenus="Choix numéro 1/Choix numéro 2/Choix numéro 3"                    
                 ></Choix>
 
                 <Guide contenu="Parlez au capitaine"></Guide>
