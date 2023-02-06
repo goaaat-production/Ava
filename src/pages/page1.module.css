@@ -6,6 +6,14 @@
     height: 100vh;
 }
 
+.hidden{
+    display: none;
+}
+
+.oui{
+    display: block;
+}
+
 .tableau{
     width: 80vw;
 }

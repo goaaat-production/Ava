@@ -1,17 +1,20 @@
-
+import { useState } from 'react';
 import Dialogue from '../components/Dialogues'
 import styles from './page1.module.css'
 import Guide from '../components/Guides'
+import Choix from '../components/Choix'
 
 
 
 function Page1(){
 
+    let [isLastPhrase, setIsLastPhrase] = useState(false);
+
     return(
         <>  
             <section className={styles.page}>
                 <img className={styles.tableau} src='./lincendie-du-steamer-austria.png' alt='Tableau : incendie-du-steamer-austria'></img>
-                <Dialogue dialogue="
+                <Dialogue setIsLastPhrase={setIsLastPhrase}   dialogue="
                     :Matelot : Le pont est en feu !/ 
 
                     :Capitaine : Jetez les canaux à l’eau ! Les femmes et les enfants d’abord !/
@@ -23,6 +26,11 @@ function Page1(){
                     :Capitaine : Toi là, tu fais quoi ?
                 "></Dialogue>
                 
+                <Choix shown={isLastPhrase ? "oui" : `${"oui"} ${styles.hidden}`} 
+                    contenu="Choix numéro 1/Choix numéro 2/Choix numéro 3"
+                
+                ></Choix>
+
                 <Guide contenu="Parlez au capitaine"></Guide>
             </section>
             

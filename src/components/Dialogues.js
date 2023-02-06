@@ -7,9 +7,15 @@ function Dialogue(props){
     const enonciateur = DialogueToEnonciateur(props.dialogue)
 
     let [idPhrase, setIdPhrase] = useState(0)
+    
+
 
     function handleClick() {
         setIdPhrase(idPhrase < phrases.length - 1 ? idPhrase += 1 : idPhrase);
+
+        if(idPhrase >= (phrases.length - 1)){
+            props.setIsLastPhrase(true);
+        }
     }
 
     function DialogueToPhrases(dialogues){
@@ -33,6 +39,8 @@ function Dialogue(props){
         
         return enonciateurs
     }
+
+    
 
     return(
         <>
