@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDrag } from 'react-dnd'
-
+import styles from './dragAndDrop.module.css';
 function ItemsDND({id, url}) {
   const [{isDragging},drag] = useDrag(() => ({
     type: "image", 
@@ -10,7 +10,7 @@ function ItemsDND({id, url}) {
       isDragging: !!monitor.isDragging(),
     })
   }))
-  return <img src={url} width="150px" style={{border: isDragging ? "5px solid pink" : "0px"}} ref={drag}/>  
+  return <img className = {styles.items} src={url} style={{border: isDragging ? "5px solid pink" : "0px"}} ref={drag}/>  
 
 }
 

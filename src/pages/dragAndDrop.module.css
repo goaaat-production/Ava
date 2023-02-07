@@ -1,13 +1,43 @@
-.boards {
+.content {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+
+.boards {
+    position: relative;
+    width: 80vw;
+    height:70vw;
+}
+.boards > img {
+    width: 80vw;
+    top:10vw;
+    left:0px;
+    position: absolute;
+}
 .board1, .board2, .board3 {
-    width: 300px;
-    height: 500px;
     border: 2px solid black;
+    width: 10vw;
+    height: 10vw;
 }
 
-.item {
-    text-align:center;
+.board1{
+    position: absolute;
+    left: 1.5%;
+    top:22vw;
+}
+.board2{
+    position: absolute;
+    left: 30%;
+    top:10vw;
+}
+.board3{
+    position: absolute;
+    right: 31%;
+    top:15vw;
+}
+
+.items {
+    width: 10vw;
 }
