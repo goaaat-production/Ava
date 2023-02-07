@@ -1,6 +1,13 @@
-.item{ 
-    background-Color: lightblue ;
-    margin: 20px 25%;
-    text-Align: center;
-    font-Size: 40px;
+.boards {
+    display: flex;
+}
+
+.board1, .board2, .board3 {
+    width: 300px;
+    height: 500px;
+    border: 2px solid black;
+}
+
+.item {
+    text-align:center;
 }
