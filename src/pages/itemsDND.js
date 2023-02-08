@@ -10,6 +10,7 @@ function ItemsDND({id, url}) {
       isDragging: !!monitor.isDragging(),
     })
   }))
+  
   return <img className = {styles.items} src={url} style={{border: isDragging ? "5px solid pink" : "0px"}} ref={drag}/>  
 
 }

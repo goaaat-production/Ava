@@ -1,0 +1,12 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.drawboard {
+    width:80vw;
+    height:300px;
+    border: solid 5px blue;
+
+}   
