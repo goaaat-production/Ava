@@ -28,7 +28,7 @@ function sketch(p) {
 
 
     p.exporter = function () {
-        p.save("myImage.jpg")
+        p.save("MonPortraitDeTitien-AVA-BACCHANIGHT2023.jpg")
     }
     
     p.draw = function() {

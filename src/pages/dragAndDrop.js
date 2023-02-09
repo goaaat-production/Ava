@@ -2,6 +2,7 @@ import React from 'react';
 import ItemsDND from './itemsDND';
 import { useState } from "react";
 import { useDrop } from 'react-dnd';
+import { useDrag } from 'react-dnd';
 import styles from './dragAndDrop.module.css'
 const ItemList = [
     {
@@ -51,6 +52,29 @@ function DragAndDrop() {
             isOver3: !!monitor.isOver(),
         })
     }))
+
+
+    const [{isDragging},drag1] = useDrag(() => ({
+        type: "image", 
+        collect: (monitor) => ({
+          isDragging: !!monitor.isDragging(),
+        })
+      }))
+      
+    const [{isDragging2},drag2] = useDrag(() => ({
+        type: "image", 
+        collect: (monitor) => ({
+          isDragging: !!monitor.isDragging(),
+        })
+      }))
+      
+    const [{isDragging3},drag3] = useDrag(() => ({
+        type: "image", 
+        collect: (monitor) => ({
+          isDragging: !!monitor.isDragging(),
+        })
+      }))
+        
     const AddImageToBoard = (itemId, boardId) => {
         const pictureList = ItemList.filter((item) => itemId === item.id); // récupère l'objet de l'ID = itemId
         console.log("itemId : ", itemId, " boardId : ", boardId);
@@ -68,32 +92,46 @@ function DragAndDrop() {
         }
 
         console.log("ItemList = ", ItemList)
-
-
     }
+
+
+    const toggle = () => {
+        this.setState(prev => ({ reveal: !prev.reveal }))
+      }
+    
+
+
+
+
     return (
         <>
             <div className={styles.content}>
                 <div className={styles.boards}>
                     <img src="./lincendie-du-steamer-austria.png"></img>
                     <div className={styles.board1} ref={drop}>
+                        
                         {board.map((item) => {
                             return <ItemsDND key={item.id} url={item.url} id={item.id} />
                         })}
                     </div>
+                    
                     <div className={styles.board2} ref={drop2}>
+                    
                         {board2.map((item) => {
                             return <ItemsDND key={item.id} url={item.url} id={item.id} />
                         })}
                     </div>
                     <div className={styles.board3} ref={drop3}>
+                    
                         {board3.map((item) => {
                             return <ItemsDND key={item.id} url={item.url} id={item.id} />
                         })}
                     </div>
                 </div>
 
-                <div className={styles.item}>
+                <div className={styles.item} style={{
+                    backgroundColor: isDragging ? 'black' : "white"
+                }}>
                     {ItemList.map((item) => {
                         return <ItemsDND key={item.id} url={item.url} id={item.id} />
                     })}
