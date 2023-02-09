@@ -11,8 +11,16 @@ function ItemsDND({id, url}) {
     })
   }))
   
-  return <img className = {styles.items} src={url} style={{border: isDragging ? "5px solid pink" : "0px"}} ref={drag}/>  
-
+  return (
+  <>
+  {/* <DragPreviewImage connect={preview} src={url} /> */}
+  <div ref={drag} style={{opacity: isDragging ? 0.5 : 1,}}>
+    <img className = {styles.items} src={url} style={{border: isDragging ? "5px solid pink" : "0px"}} ref={drag}/>  
+  </div>
+  
+  </>
+  ) 
+  
 }
 
 export default ItemsDND

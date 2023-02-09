@@ -51,30 +51,12 @@ function DragAndDrop() {
         collect: (monitor) => ({
             isOver3: !!monitor.isOver(),
         })
-    }))
+    }))    
+    
 
 
-    const [{isDragging},drag1] = useDrag(() => ({
-        type: "image", 
-        collect: (monitor) => ({
-          isDragging: !!monitor.isDragging(),
-        })
-      }))
-      
-    const [{isDragging2},drag2] = useDrag(() => ({
-        type: "image", 
-        collect: (monitor) => ({
-          isDragging: !!monitor.isDragging(),
-        })
-      }))
-      
-    const [{isDragging3},drag3] = useDrag(() => ({
-        type: "image", 
-        collect: (monitor) => ({
-          isDragging: !!monitor.isDragging(),
-        })
-      }))
-        
+
+
     const AddImageToBoard = (itemId, boardId) => {
         const pictureList = ItemList.filter((item) => itemId === item.id); // récupère l'objet de l'ID = itemId
         console.log("itemId : ", itemId, " boardId : ", boardId);
@@ -108,30 +90,36 @@ function DragAndDrop() {
             <div className={styles.content}>
                 <div className={styles.boards}>
                     <img src="./lincendie-du-steamer-austria.png"></img>
-                    <div className={styles.board1} ref={drop}>
-                        
+                    <div className={styles.board1} ref={drop} style={{
+                        backgroundColor: isOver? "yellow" : "white",
+                        opacity:'40%'
+                    }} >   
                         {board.map((item) => {
                             return <ItemsDND key={item.id} url={item.url} id={item.id} />
                         })}
                     </div>
+    
+
                     
-                    <div className={styles.board2} ref={drop2}>
-                    
+                    <div className={styles.board2} ref={drop2} style={{
+                        backgroundColor: isOver2? "yellow" : "white",
+                        opacity:'40%'
+                    }} >   
                         {board2.map((item) => {
                             return <ItemsDND key={item.id} url={item.url} id={item.id} />
                         })}
                     </div>
-                    <div className={styles.board3} ref={drop3}>
+                    <div className={styles.board3} ref={drop3} style={{
+                        backgroundColor: isOver3? "yellow" : "white",
+                        opacity:'40%'
+                    }} >   
                     
                         {board3.map((item) => {
                             return <ItemsDND key={item.id} url={item.url} id={item.id} />
                         })}
                     </div>
                 </div>
-
-                <div className={styles.item} style={{
-                    backgroundColor: isDragging ? 'black' : "white"
-                }}>
+                <div className={styles.item}>
                     {ItemList.map((item) => {
                         return <ItemsDND key={item.id} url={item.url} id={item.id} />
                     })}
